@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — MindMate</title>
+<meta name="description" content="Log in to your private MindMate space.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- AOS Animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<!-- App styles -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- ================= LEFT VISUAL PANEL ================= -->
+  <div class="auth-visual">
+    <div class="hero-blob one"></div>
+    <div class="hero-blob two"></div>
+
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+
+    <div class="auth-visual-copy" data-aos="fade-up">
+      <h2>Good to see you again.</h2>
+      <p>Your check-ins, journal, and progress are exactly where you left them — private, and only yours.</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+      <div class="auth-visual-card">
+        <span class="eyebrow"><i class="fa-solid fa-quote-left"></i>&nbsp; Daily Quote</span>
+        <p>"Progress isn't a straight line — showing up today is enough."</p>
+      </div>
+
+      <div class="auth-visual-badges mt-1">
+        <span class="auth-visual-badge"><i class="fa-solid fa-lock"></i> On-device only</span>
+        <span class="auth-visual-badge"><i class="fa-solid fa-face-smile"></i> No judgment</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= RIGHT FORM PANEL ================= -->
+  <div class="auth-form-panel">
+    <a href="index.html" class="auth-back">
+      <i class="fa-solid fa-arrow-left"></i> Back home
+    </a>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+      <span class="knob"><i class="fa-solid fa-moon"></i></span>
+    </button>
+
+    <div class="auth-card" data-aos="fade-up">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+        MindMate
+      </a>
+
+      <div class="card auth-form-card">
+        <div class="auth-head">
+          <h2>Welcome back</h2>
+          <p>Log in to continue your journey.</p>
+        </div>
+
+        <div class="auth-alert" id="loginAlert" role="alert"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <div class="form-input-wrap">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <div class="form-error"><i class="fa-solid fa-circle-exclamation"></i><span>Please enter a valid email address.</span></div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <div class="form-input-wrap has-toggle">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+              <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Show password">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-error"><i class="fa-solid fa-circle-exclamation"></i><span>Please enter your password.</span></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+          </button>
+        </form>
+
+        <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up for free</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  AOS.init({ duration: 650, once: true, easing: 'ease-out-cubic' });
+</script>
+<script src="../js/auth.js"></script>
+</body>
+</html>

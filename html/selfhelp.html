@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self Help Center — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="selfhelp">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self Help</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Self Help Center</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============ Emergency Resources (always visible, top of page) ============ -->
+    <div class="emergency-banner" id="emergency" data-aos="fade-up">
+      <div class="emergency-icon"><i class="fa-solid fa-phone-volume"></i></div>
+      <div class="emergency-content">
+        <h4>Need to talk to someone right now?</h4>
+        <p style="font-size:0.88rem; margin-top:2px;">These are always here — no login or judgment, just support.</p>
+        <div class="emergency-resources-row">
+          <span class="emergency-resource-pill"><i class="fa-solid fa-phone"></i> Emergency: 999 (Bangladesh)</span>
+          <span class="emergency-resource-pill"><i class="fa-solid fa-comment-dots"></i> Kaan Pete Roi: 09612-119911</span>
+           <span class="emergency-resource-pill">
+        <i class="fa-solid fa-globe"></i>
+        <a href="https://findahelpline.com/" target="_blank">
+          findahelpline.com
+        </a>
+      </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Topic Accordions ============ -->
+    <h3 style="margin-bottom:var(--sp-4);">Explore a topic</h3>
+    <div class="topics-grid" id="topicsGrid"></div>
+
+    <!-- ============ Trusted Contacts (simple list) ============ -->
+    <div class="card widget" data-aos="fade-up" style="margin-bottom:var(--sp-6);">
+      <div class="widget-head">
+        <h3><span class="widget-icon"><i class="fa-solid fa-user-group"></i></span> Trusted Contacts</h3>
+      </div>
+      <p style="font-size:0.85rem; margin-bottom:var(--sp-4);"> Add people you trust and can reach out to when you need support — 
+  such as a parent, friend, sibling, teacher, or counselor.</p>
+
+      <div class="contacts-list" id="contactsList"></div>
+
+      <form class="add-contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" placeholder="e.g. Mom, Best Friend" required style="width:100%; padding:0.7rem 1rem; border-radius:var(--r-md); border:1.5px solid var(--border-soft); background:var(--bg-primary); color:var(--text-primary);">
+        </div>
+        <div class="form-group">
+          <label for="contactRelation">Relation / phone</label>
+          <input type="text" id="contactRelation" placeholder="e.g. Parent · Phone number" required style="width:100%; padding:0.7rem 1rem; border-radius:var(--r-md); border:1.5px solid var(--border-soft); background:var(--bg-primary); color:var(--text-primary);">
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
+      </form>
+    </div>
+
+    <!-- ============ School Counselor ============ -->
+    <div class="card widget">
+      <div class="widget-head">
+        <h3><span class="widget-icon"><i class="fa-solid fa-school"></i></span> School Counselor</h3>
+      </div>
+      <p style="font-size:0.9rem;"> Your school counselor is here to support you with academic stress,
+  friendship problems, personal challenges, or when you simply need someone
+  to talk to. Visit your school counseling office or ask your teacher how to
+  connect with a counselor.</p>
+    </div>
+
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>AOS.init({ duration: 550, once: true, easing: 'ease-out-cubic' });</script>
+<script src="../js/app.js"></script>
+</body>
+</html>

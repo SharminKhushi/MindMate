@@ -1,0 +1,181 @@
+/* ==========================================================================
+   MindMate — responsive.css
+   Mobile-first overrides. Base styles in style.css target desktop (>992px).
+   ========================================================================== */
+
+/* ---------- Tablet: <= 992px ---------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    max-width: 460px;
+    margin: var(--sp-6) auto 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-visual {
+    order: -1;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+  }
+
+  .features-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Mobile-large: <= 768px ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--sp-4);
+  }
+
+  section {
+    padding: var(--sp-7) 0;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: var(--sp-4);
+    right: var(--sp-4);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+    background: var(--bg-glass-strong);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-md);
+    padding: var(--sp-5);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-14px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--dur-med) var(--ease-standard),
+                opacity var(--dur-med) var(--ease-standard),
+                visibility var(--dur-med) var(--ease-standard);
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero {
+    padding-top: calc(var(--sp-7) + 2.5rem);
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-float-badge {
+    display: none;
+  }
+
+  .features-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-align: center;
+  }
+
+  .cta-band {
+    padding: var(--sp-6) var(--sp-4);
+  }
+}
+
+/* ---------- Mobile-small: <= 480px ---------- */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- App-shell placeholders (used from dashboard.html onward) ---------- */
+@media (max-width: 768px) {
+  .app-sidebar {
+    display: none;
+  }
+
+  .bottom-tabbar {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .bottom-tabbar {
+    display: none;
+  }
+}

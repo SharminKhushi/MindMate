@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindMate — Your Space to Feel, Reflect, and Grow</title>
+<meta name="description" content="MindMate helps teenagers track their emotions, build healthy habits, and find support — privately, on their own device.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- AOS Animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<!-- App styles -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="login.html">Log In</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="knob"><i class="fa-solid fa-moon"></i></span>
+      </button>
+      <a href="signup.html" class="btn btn-primary">Get Started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-blob one"></div>
+    <div class="hero-blob two"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i>&nbsp; Built for teens, by design</span>
+        <h1>A quiet space to <span class="gradient-text">feel</span>, reflect, and <span class="gradient-text">grow</span>.</h1>
+        <p>MindMate helps you understand your emotions, build habits that stick, and find real support — all private, all on your device, always yours.</p>
+
+        <div class="hero-actions">
+          <a href="signup.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Start for Free
+          </a>
+          <a href="#features" class="btn btn-secondary btn-lg">
+            <i class="fa-solid fa-play"></i> See How It Works
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Private &amp; on-device</span>
+          </div>
+          <div class="hero-stat">
+            <strong>7</strong>
+            <span>Self-help topics</span>
+          </div>
+          <div class="hero-stat">
+            <strong>0</strong>
+            <span>Ads, ever</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-aos="fade-up" data-aos-delay="150">
+        <div class="hero-card glass card">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <h4>Today's Check-in</h4>
+            <i class="fa-solid fa-ellipsis" style="color:var(--text-secondary);"></i>
+          </div>
+          <p style="font-size:0.85rem; margin-top:var(--sp-1);">How are you really feeling?</p>
+
+          <div class="hero-mood-row">
+            <div class="hero-mood-chip active">🙂</div>
+            <div class="hero-mood-chip">😌</div>
+            <div class="hero-mood-chip">😐</div>
+            <div class="hero-mood-chip">😔</div>
+            <div class="hero-mood-chip">😣</div>
+          </div>
+
+          <div style="background:var(--bg-primary); border-radius:var(--r-md); padding:var(--sp-4); margin-top:var(--sp-4);">
+            <span class="eyebrow" style="margin-bottom:var(--sp-2);"><i class="fa-solid fa-wand-magic-sparkles"></i>&nbsp; Smart Suggestion</span>
+            <p style="font-size:0.88rem; color:var(--text-primary);">Nice energy today — try locking it in with a 10-minute walk challenge.</p>
+          </div>
+        </div>
+
+        <div class="hero-float-badge badge-top glass">
+          <i class="fa-solid fa-fire"></i> 12-day streak
+        </div>
+        <div class="hero-float-badge badge-bottom glass">
+          <i class="fa-solid fa-chart-line"></i> Mood improving
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section id="features">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">What's inside</span>
+        <h2>Everything you need, nothing you don't</h2>
+        <p>Four simple tools that work together to help you actually understand yourself.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="feature-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <h3>Mood Check-in</h3>
+          <p>Log your mood, stress, energy, and sleep in seconds — and get a personalized suggestion right away.</p>
+        </div>
+
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Reflection Journal</h3>
+          <p>Write freely, tag how you felt, and look back on your own words whenever you need to.</p>
+        </div>
+
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Goals &amp; Habits</h3>
+          <p>Set goals that matter to you and build the daily habits that get you there, one check-off at a time.</p>
+        </div>
+
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="feature-icon"><i class="fa-solid fa-chart-simple"></i></div>
+          <h3>Mood Analytics</h3>
+          <p>See your patterns over weeks and months — so your feelings start to make a lot more sense.</p>
+        </div>
+
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="feature-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3>Self Help Center</h3>
+          <p>Real guidance on exam stress, peer pressure, bullying, anxiety, and more — written for you, not at you.</p>
+        </div>
+
+        <div class="card card-hover feature-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+          <h3>Private by Default</h3>
+          <p>Everything stays on your device. No accounts sold, no data shared — this space is entirely yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" style="background:var(--bg-surface);">
+    <div class="container about-grid">
+      <div class="about-visual" data-aos="fade-right">
+  <img src="../assets/mindmate-about.png" alt="MindMate">
+</div>
+
+      <div data-aos="fade-left">
+        <span class="eyebrow">Why MindMate</span>
+        <h2>More than a diary. A place that actually gets it.</h2>
+        <p style="margin-top:var(--sp-4); font-size:1.05rem;">Being a teenager comes with a lot — grades, friendships, family, and figuring out who you are, all at once. MindMate isn't therapy and it isn't a school app. It's a small, honest space that helps you notice patterns, build habits, and reach out for real help when you need it.</p>
+
+        <div class="about-stats">
+          <div class="about-stat card">
+            <strong>13–19</strong>
+            <span>Built specifically for teens</span>
+          </div>
+          <div class="about-stat card">
+            <strong>24/7</strong>
+            <span>Available whenever you need it</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">From people like you</span>
+        <h2>What teens are saying</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="card card-hover testimonial-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The daily check-in takes like 15 seconds but somehow it's the thing that helps me most.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <strong>Riya, 16</strong>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-hover testimonial-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">I like that it's just mine. No parent account, no school login — just my own space to write things down.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <strong>Jamal, 17</strong>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-hover testimonial-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The mood chart made me realize my stress spikes every Sunday night. Just knowing that helped.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <strong>Sofia, 15</strong>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section>
+    <div class="container">
+      <div class="cta-band" data-aos="zoom-in">
+        <h2>Your first check-in takes 15 seconds.</h2>
+        <p>No pressure, no judgment — just a space that's yours.</p>
+        <a href="signup.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Create Your Free Account
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+          MindMate
+        </a>
+        <p>A private, user-centered space for teenagers to understand their emotions and grow — one day at a time.</p>
+        <div class="footer-socials">
+          <a href="#" class="icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="icon-btn" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="signup.html">Get Started</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="selfhelp.html">Self Help Center</a></li>
+          <li><a href="selfhelp.html#emergency">Emergency Resources</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 MindMate. Made for a student HCI project.</span>
+      <span>All data stays on your device.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+  // Navbar scroll state
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Theme toggle (persisted; full logic will move to js/app.js for inner pages)
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('mindmate_theme') || 'light';
+  if (savedTheme === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+    themeToggle.setAttribute('aria-pressed', 'true');
+  }
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('mindmate_theme', 'light');
+      themeToggle.setAttribute('aria-pressed', 'false');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('mindmate_theme', 'dark');
+      themeToggle.setAttribute('aria-pressed', 'true');
+    }
+  });
+</script>
+</body>
+</html>

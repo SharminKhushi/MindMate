@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goals & Habits — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="goals">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self Help</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Goals &amp; Habit Tracker</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Top stats -->
+    <div class="goals-top-stats">
+      <div class="card widget">
+        <div class="stat-row">
+          <div class="stat-icon-circle"><i class="fa-solid fa-bullseye"></i></div>
+          <div><div class="stat-number" id="statGoalCount">0</div><div class="stat-label">Active goals</div></div>
+        </div>
+      </div>
+      <div class="card widget">
+        <div class="stat-row">
+          <div class="stat-icon-circle"><i class="fa-solid fa-list-check"></i></div>
+          <div><div class="stat-number" id="statHabitPct">0%</div><div class="stat-label">Habits done today</div></div>
+        </div>
+      </div>
+      <div class="card widget">
+        <div class="stat-row">
+          <div class="stat-icon-circle"><i class="fa-solid fa-chart-simple"></i></div>
+          <div><div class="stat-number" id="statAvgProgress">0%</div><div class="stat-label">Average goal progress</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goals -->
+    <div class="goals-section-head">
+      <h3>Your Goals</h3>
+      <button class="btn btn-primary" id="openGoalModalBtn"><i class="fa-solid fa-plus"></i> Add Goal</button>
+    </div>
+    <div class="goal-list" id="goalList"></div>
+    <div class="empty-state" id="goalEmptyState" style="display:none;">
+      <i class="fa-solid fa-bullseye"></i>
+      <p>No goals yet. What's something you'd like to work toward?</p>
+      <button class="btn btn-secondary" id="emptyGoalAddBtn">Add your first goal</button>
+    </div>
+
+    <!-- Habits -->
+    <div class="goals-section-head" style="margin-top:var(--sp-6);">
+      <h3>Daily Habit Checklist</h3>
+      <button class="btn btn-primary" id="openHabitModalBtn"><i class="fa-solid fa-plus"></i> Add Habit</button>
+    </div>
+    <div class="habit-list" id="habitList"></div>
+    <div class="empty-state" id="habitEmptyState" style="display:none;">
+      <i class="fa-solid fa-list-check"></i>
+      <p>No habits yet. Small, repeated actions build big change.</p>
+      <button class="btn btn-secondary" id="emptyHabitAddBtn">Add your first habit</button>
+    </div>
+
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<!-- Add Goal Modal -->
+<div class="modal-overlay" id="goalModal">
+  <div class="card modal-box">
+    <div class="modal-head">
+  <h3 id="goalModalTitle">New Goal</h3>
+      <button class="modal-close" id="closeGoalModalBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="goalForm">
+      <div class="form-group">
+        <label for="goalTitle">Goal title</label>
+        <div class="form-input-wrap">
+          <i class="fa-solid fa-bullseye input-icon"></i>
+          <input type="text" id="goalTitle" placeholder="e.g. Improve my grades in Math" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="goalDate">Target date (optional)</label>
+        <div class="form-input-wrap">
+          <i class="fa-solid fa-calendar input-icon"></i>
+          <input type="date" id="goalDate">
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelGoalBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Goal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Add Habit Modal -->
+<div class="modal-overlay" id="habitModal">
+  <div class="card modal-box">
+  <div class="modal-head">
+  <h3 id="habitModalTitle">New Habit</h3>
+      <button class="modal-close" id="closeHabitModalBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="habitForm">
+      <div class="form-group">
+        <label for="habitTitle">Habit title</label>
+        <div class="form-input-wrap">
+          <i class="fa-solid fa-list-check input-icon"></i>
+          <input type="text" id="habitTitle" placeholder="e.g. Drink 8 glasses of water" required>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelHabitBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Habit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>AOS.init({ duration: 550, once: true, easing: 'ease-out-cubic' });</script>
+<script src="../js/app.js"></script>
+<script src="../js/goals.js"></script>
+
+<!-- Delete Goal Confirmation Modal -->
+<div class="modal-overlay" id="goalDeleteModal">
+  <div class="card modal-box">
+
+    <div class="modal-head">
+      <h3>Delete Goal</h3>
+
+      <button class="modal-close" id="closeGoalDeleteModal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <p style="margin-bottom:20px;">
+      Are you sure you want to delete this goal?
+    </p>
+
+    <div class="modal-actions">
+
+      <button class="btn btn-ghost" id="cancelGoalDelete">
+        Cancel
+      </button>
+
+      <button class="btn btn-primary" id="confirmGoalDelete">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Delete Habit Confirmation Modal -->
+<div class="modal-overlay" id="habitDeleteModal">
+  <div class="card modal-box">
+
+    <div class="modal-head">
+      <h3>Delete Habit</h3>
+
+      <button class="modal-close" id="closeHabitDeleteModal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <p style="margin-bottom:20px;">
+      Are you sure you want to delete this habit?
+    </p>
+
+    <div class="modal-actions">
+
+      <button class="btn btn-ghost" id="cancelHabitDelete">
+        Cancel
+      </button>
+
+      <button class="btn btn-primary" id="confirmHabitDelete">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

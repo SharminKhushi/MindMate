@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile & Settings — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="profile">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self Help</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Profile &amp; Settings</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Header -->
+    <div class="card profile-header-card" data-aos="fade-up">
+      <div class="profile-avatar-large" id="profileAvatarLarge">M</div>
+      <div class="profile-header-info">
+        <h3 id="profileName">—</h3>
+        <span id="profileEmail">—</span><br>
+        <span id="profileAge"></span>
+      </div>
+    </div>
+
+    <div class="settings-grid">
+
+      <!-- Avatar Picker -->
+      <div class="card settings-card" data-aos="fade-up">
+        <h4 style="margin-bottom:var(--sp-4);">Choose Your Avatar</h4>
+        <div class="avatar-picker-grid" id="avatarPickerGrid"></div>
+      </div>
+
+      <!-- Appearance -->
+      <div class="card settings-card" data-aos="fade-up" data-aos-delay="80">
+        <h4 style="margin-bottom:var(--sp-2);">Appearance</h4>
+        <div class="settings-row">
+          <div class="settings-row-info">
+            <strong>Dark Mode</strong>
+            <span>Easier on the eyes at night</span>
+          </div>
+          <button class="theme-toggle" id="settingsThemeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="knob"><i class="fa-solid fa-moon"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Info -->
+      <div class="card settings-card" data-aos="fade-up">
+        <h4 style="margin-bottom:var(--sp-2);">Account</h4>
+        <div class="settings-row">
+          <div class="settings-row-info"><strong>Name</strong><span id="accountName">—</span></div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-info"><strong>Email</strong><span id="accountEmail">—</span></div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-info"><strong>Member since</strong><span id="accountSince">—</span></div>
+        </div>
+      </div>
+
+      <!-- Privacy / Data -->
+      <div class="card settings-card danger-zone" data-aos="fade-up" data-aos-delay="80">
+        <h4 style="margin-bottom:var(--sp-2);">Privacy &amp; Data</h4>
+        <p style="font-size:0.85rem; margin-bottom:var(--sp-4);">Everything you've entered lives only in this browser. You're in full control of it.</p>
+        <div style="display:flex; gap:var(--sp-3); flex-wrap:wrap;">
+          <button class="btn btn-secondary" id="exportDataBtn"><i class="fa-solid fa-download"></i> Export My Data</button>
+          <button class="btn" style="background:var(--danger); color:#fff;" id="clearDataBtn"><i class="fa-solid fa-trash"></i> Clear All Data</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>AOS.init({ duration: 550, once: true, easing: 'ease-out-cubic' });</script>
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Check-in — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="mood">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self Help</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Mood Check-in &amp; Analytics</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mood-page-grid">
+
+      <!-- ================= LEFT: CHECK-IN FORM ================= -->
+      <div class="card checkin-card" data-aos="fade-up">
+        <h3 style="margin-bottom:var(--sp-2);">How are you, really?</h3>
+        <p style="font-size:0.88rem; margin-bottom:var(--sp-5);">Answer honestly — this stays private and helps MindMate suggest something useful.</p>
+
+        <form id="checkinForm">
+          <div class="checkin-section">
+            <label>Mood</label>
+            <div class="checkin-mood-grid" id="checkinMoodGrid"></div>
+          </div>
+
+          <div class="checkin-section">
+            <label for="stressSlider">Stress Level</label>
+            <div class="slider-wrap">
+              <input type="range" id="stressSlider" min="1" max="5" value="3">
+              <span class="slider-value-badge" id="stressValue">3</span>
+            </div>
+            <div class="slider-labels"><span>Very calm</span><span>Very stressed</span></div>
+          </div>
+
+          <div class="checkin-section">
+            <label for="energySlider">Energy Level</label>
+            <div class="slider-wrap">
+              <input type="range" id="energySlider" min="1" max="5" value="3">
+              <span class="slider-value-badge" id="energyValue">3</span>
+            </div>
+            <div class="slider-labels"><span>Drained</span><span>Energized</span></div>
+          </div>
+
+          <div class="checkin-section">
+            <label for="sleepInput">Sleep last night (hours)</label>
+            <div class="sleep-input-wrap">
+              <input type="number" id="sleepInput" min="0" max="14" step="0.5" placeholder="7">
+              <div class="sleep-quick-btns">
+                <button type="button" class="sleep-quick-btn" data-val="5">5</button>
+                <button type="button" class="sleep-quick-btn" data-val="6">6</button>
+                <button type="button" class="sleep-quick-btn" data-val="7">7</button>
+                <button type="button" class="sleep-quick-btn" data-val="8">8</button>
+                <button type="button" class="sleep-quick-btn" data-val="9">9</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Get My Suggestion
+          </button>
+        </form>
+
+        <div class="companion-result" id="companionResult">
+          <div class="companion-result-head">
+            <div class="companion-icon"><i class="fa-solid fa-wand-magic-sparkles" id="companionIcon"></i></div>
+            <h4 id="companionTitle">Smart Suggestion</h4>
+          </div>
+          <p id="companionText"></p>
+          <a href="selfhelp.html" class="btn" id="companionLink" style="display:none;">
+            <i class="fa-solid fa-arrow-right"></i> <span id="companionLinkText">Explore Self Help</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= RIGHT: ANALYTICS ================= -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="analytics-tabs">
+          <button type="button" class="analytics-tab active" data-range="weekly">Weekly</button>
+          <button type="button" class="analytics-tab" data-range="monthly">Monthly</button>
+        </div>
+
+        <div class="card chart-card">
+          <div class="widget-head">
+            <h3><span class="widget-icon"><i class="fa-solid fa-chart-line"></i></span> Mood Trend</h3>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="moodChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card widget">
+          <div class="widget-head">
+            <h3><span class="widget-icon"><i class="fa-solid fa-list"></i></span> Emotional Summary</h3>
+          </div>
+          <div class="summary-stats-grid">
+            <div class="summary-stat-card">
+              <span class="emoji-big" id="summaryAvgEmoji">🙂</span>
+              <strong id="summaryAvgLabel">—</strong>
+              <span>Average mood</span>
+            </div>
+            <div class="summary-stat-card">
+              <span class="emoji-big" id="summaryTopEmoji">🙂</span>
+              <strong id="summaryTopLabel">—</strong>
+              <span>Most frequent</span>
+            </div>
+            <div class="summary-stat-card">
+              <span class="emoji-big">📅</span>
+              <strong id="summaryCount">0</strong>
+              <span id="summaryCountLabel">check-ins this week</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>AOS.init({ duration: 550, once: true, easing: 'ease-out-cubic' });</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/mood.js"></script>
+</body>
+</html>

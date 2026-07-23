@@ -1,0 +1,28 @@
+{
+  "checkins": [
+    {
+      "date": "2026-07-24",
+      "mood": "stressed",
+      "timestamp": "2026-07-23T18:11:11.972Z"
+    }
+  ],
+  "journal": [],
+  "goals": [
+    {
+      "id": "g_1784830038286",
+      "title": "444",
+      "targetDate": "2026-08-01",
+      "progress": 10,
+      "createdAt": "2026-07-23T18:07:18.286Z"
+    }
+  ],
+  "habits": [
+    {
+      "id": "h_1784830183274",
+      "title": "jj",
+      "completedDates": [],
+      "createdAt": "2026-07-23T18:09:43.274Z"
+    }
+  ],
+  "contacts": []
+}

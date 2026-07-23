@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — MindMate</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- AOS Animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<!-- App styles -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="dashboard">
+
+<div class="app-shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self Help</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="app-main">
+
+    <div class="app-topbar">
+      <h1>Dashboard</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+
+      <!-- Greeting + Today's Mood -->
+      <div class="greeting-banner widget-3" data-aos="fade-up">
+        <div>
+          <h2 id="greetingText">Hi there</h2>
+          <p id="greetingDate">—</p>
+        </div>
+        <div class="greeting-mood-pill" id="todayMoodPill">
+          <span class="emoji">👋</span>
+          <span><strong>Loading…</strong><span>Today's mood</span></span>
+        </div>
+      </div>
+
+      <!-- Quick Emotion Check-in -->
+      <div class="card widget" data-aos="fade-up" data-aos-delay="0">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-face-smile"></i></span> Quick Check-in</h3>
+        </div>
+        <p style="font-size:0.85rem;">How are you feeling right now?</p>
+        <div class="mood-chip-row" id="quickMoodRow"></div>
+        <a href="mood.html" class="widget-link">Full check-in &amp; analytics <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Daily Quote -->
+      <div class="card glass widget quote-widget" data-aos="fade-up" data-aos-delay="80">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-quote-left"></i></span> Daily Quote</h3>
+        </div>
+        <p id="dailyQuoteText">"Loading today's quote…"</p>
+        <span class="quote-author" id="dailyQuoteAuthor">— MindMate</span>
+      </div>
+
+      <!-- Streak / Achievements -->
+      <div class="card widget" data-aos="fade-up" data-aos-delay="160">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-fire"></i></span> Your Streak</h3>
+        </div>
+        <div class="stat-row">
+          <div class="stat-icon-circle"><i class="fa-solid fa-fire"></i></div>
+          <div>
+            <div class="stat-number"><span id="streakNumber">0</span> days</div>
+            <div class="stat-label">Keep checking in daily</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Wellness Challenges -->
+      <div class="card widget widget-2" data-aos="fade-up" data-aos-delay="0">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-flag-checkered"></i></span> Daily Wellness Challenges</h3>
+          <span id="challengeProgressText" style="font-size:0.8rem; color:var(--text-secondary);">0/4 completed</span>
+        </div>
+        <div class="progress-track" style="margin-bottom:var(--sp-4);">
+          <div class="progress-fill" id="challengeProgressFill" style="width:0%"></div>
+        </div>
+        <div class="challenge-list" id="challengeList"></div>
+      </div>
+
+      <!-- Achievement Badges -->
+      <div class="card widget" data-aos="fade-up" data-aos-delay="80">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-trophy"></i></span> Achievements</h3>
+          <a href="#" class="widget-link" style="opacity:0.5; pointer-events:none;">All badges</a>
+        </div>
+        <div class="badge-row" id="badgeRow"></div>
+      </div>
+
+      <!-- Habit Progress -->
+      <div class="card widget progress-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-list-check"></i></span> Habit Progress</h3>
+          <a href="goals.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div id="habitProgressBody"></div>
+      </div>
+
+      <!-- Goal Progress -->
+      <div class="card widget progress-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-bullseye"></i></span> Goal Progress</h3>
+          <a href="goals.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div id="goalProgressBody"></div>
+      </div>
+
+      <!-- Recent Journal -->
+      <div class="card widget progress-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-book-open"></i></span> Recent Journal</h3>
+          <a href="journal.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div id="journalPreviewList"></div>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="card widget widget-3" data-aos="fade-up">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-compass"></i></span> Quick Navigation</h3>
+        </div>
+        <div class="quicknav-grid">
+          <a href="journal.html" class="quicknav-item"><i class="fa-solid fa-book-open"></i><span>Journal</span></a>
+          <a href="mood.html" class="quicknav-item"><i class="fa-solid fa-chart-simple"></i><span>Mood Analytics</span></a>
+          <a href="goals.html" class="quicknav-item"><i class="fa-solid fa-bullseye"></i><span>Goals</span></a>
+          <a href="selfhelp.html" class="quicknav-item"><i class="fa-solid fa-hand-holding-heart"></i><span>Self Help</span></a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ================= BOTTOM TAB BAR (mobile) ================= -->
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true, easing: 'ease-out-cubic' });
+</script>
+<script src="../js/app.js"></script>
+</body>
+</html>
