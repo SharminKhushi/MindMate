@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindMate — Your Private Space to Feel, Reflect & Grow</title>
+<meta name="description" content="A private mental wellness companion for teens — journal, mood tracking, goals, and gentle support, all in one calm space.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="landing-nav">
+  <div class="container landing-nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <div class="landing-nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="knob"><i class="fa-solid fa-moon"></i></span>
+      </button>
+      <a href="html/login.html" class="btn btn-ghost">Log In</a>
+      <a href="html/signup.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow"><i class="fa-solid fa-lock"></i> Private &amp; on your terms</span>
+      <h1>A quiet space to feel, reflect, and grow.</h1>
+      <p>MindMate helps teens track their mood, journal freely, build healthy habits, and find gentle support — without judgment, without noise.</p>
+      <div class="hero-actions">
+        <a href="html/signup.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-arrow-right"></i> Start for Free</a>
+        <a href="#features" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>7</strong><span>Core Tools</span></div>
+        <div><strong>13-19</strong><span>Built for Teens</span></div>
+        <div><strong>100%</strong><span>Private Data</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/images/hero-illustration.png" alt="Person journaling calmly at a desk with a mood dashboard on their laptop" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">Everything you need, nothing you don't</h2>
+    <div class="features-grid">
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h4>Reflection Journal</h4>
+        <p>Write freely, tag how you felt, and look back on your own words whenever you need to.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-face-smile"></i></div>
+        <h4>Mood Check-in</h4>
+        <p>Track mood, stress, energy and sleep — get a gentle, personalized suggestion every time.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h4>Goals &amp; Habits</h4>
+        <p>Set goals that matter to you and build daily habits, one honest day at a time.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-trophy"></i></div>
+        <h4>Challenges &amp; Achievements</h4>
+        <p>Small daily wins, celebrated — never punished for an off day.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <h4>Self-Help Center</h4>
+        <p>Real guidance on exam stress, anxiety, loneliness and more — plus your trusted contacts, always one tap away.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-spa"></i></div>
+        <h4>Calm Corner</h4>
+        <p>Relaxing sounds, guided breathing, and a daily dose of calm whenever you need to pause.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIVACY ================= -->
+<section>
+  <div class="container privacy-band">
+    <i class="fa-solid fa-shield-heart"></i>
+    <div>
+      <h3>Your data belongs to you.</h3>
+      <p>Every account is private — no one else can see your journal, mood history, or goals. Ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-band">
+  <div class="container" style="text-align:center;">
+    <h2>Ready to start your space?</h2>
+    <p style="color:var(--text-secondary); margin-bottom:var(--sp-5);">It takes less than a minute to sign up.</p>
+    <a href="html/signup.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-arrow-right"></i> Create Your Free Account</a>
+  </div>
+</section>
+
+<footer class="landing-footer">
+  <div class="container">
+    <p>&copy; 2026 MindMate. Made for teens, with care.</p>
+  </div>
+</footer>
+
+<script>
+  // Minimal theme toggle for the landing page only (auth.js/app.js not loaded here)
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('mindmate_theme') || 'light';
+    if (saved === 'dark') { root.setAttribute('data-theme', 'dark'); themeToggle.setAttribute('aria-pressed', 'true'); }
+    themeToggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('mindmate_theme', 'light'); themeToggle.setAttribute('aria-pressed', 'false'); }
+      else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('mindmate_theme', 'dark'); themeToggle.setAttribute('aria-pressed', 'true'); }
+    });
+  });
+</script>
+</body>
+</html>

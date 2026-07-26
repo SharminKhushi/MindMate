@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile &amp; Settings — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="profile">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="challenges.html"><i class="fa-solid fa-flag-checkered"></i> Challenges</a>
+      <a href="achievements.html"><i class="fa-solid fa-trophy"></i> Achievements</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self-Help</a>
+      <a href="calm.html"><i class="fa-solid fa-spa"></i> Calm Corner</a>
+      <a href="help.html"><i class="fa-solid fa-circle-question"></i> Help &amp; Guide</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Profile &amp; Settings</h1>
+    </div>
+
+    <!-- Profile Header -->
+    <div class="card profile-header-card">
+      <div class="profile-avatar-large" id="profileAvatarLarge">🙂</div>
+      <div class="profile-header-info">
+        <h3 id="profileName">—</h3>
+        <span id="profileEmail">—</span> · <span id="profileAge"></span>
+        <div class="member-since-badge">
+          <i class="fa-solid fa-calendar-check"></i>
+          Member since <strong id="statMemberSince">—</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account Summary -->
+    <div class="card widget" style="margin-bottom:var(--sp-5);">
+      <div class="widget-head">
+        <h3><span class="widget-icon"><i class="fa-solid fa-chart-simple"></i></span> Account Summary</h3>
+      </div>
+      <div class="account-summary-grid">
+        <div class="summary-item">
+          <i class="fa-solid fa-book-open"></i>
+          <strong id="summaryJournalCount">0</strong>
+          <span>Journal Entries</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-face-smile"></i>
+          <strong id="summaryCheckinCount">0</strong>
+          <span>Mood Check-ins</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-bullseye"></i>
+          <strong id="summaryGoalsCount">0</strong>
+          <span>Goals</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-trophy"></i>
+          <strong id="summaryAchievementsCount">0</strong>
+          <span>Achievements</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-fire"></i>
+          <strong id="summaryStreak">0</strong>
+          <span>Current Streak</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2x2 Settings Grid: Avatar | Edit Profile  ///  Appearance+Delete | Security -->
+    <div class="settings-grid">
+
+      <!-- Row 1 Left: Avatar -->
+      <div class="card settings-card">
+        <h4 style="margin-bottom:var(--sp-4);">Choose Your Avatar</h4>
+        <div class="avatar-picker-grid" id="avatarPickerGrid"></div>
+      </div>
+
+      <!-- Row 1 Right: Edit Profile -->
+      <div class="card settings-card">
+        <h4 style="margin-bottom:var(--sp-4);">Edit Profile</h4>
+        <form id="editProfileForm">
+          <div class="form-group">
+            <label for="editName">Name</label>
+            <input type="text" id="editName" required>
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="editAge">Age</label>
+            <input type="number" id="editAge" min="13" max="19">
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+        </form>
+      </div>
+
+      <!-- Row 2 Left: Appearance + Privacy/Delete Account -->
+      <div class="card settings-card">
+        <h4 style="margin-bottom:var(--sp-2);">Appearance</h4>
+        <div class="settings-row">
+          <div class="settings-row-info">
+            <strong>Dark Mode</strong>
+            <span>Easier on the eyes at night</span>
+          </div>
+          <button class="theme-toggle" id="settingsThemeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="knob"><i class="fa-solid fa-moon"></i></span>
+          </button>
+        </div>
+
+        <div class="settings-divider"></div>
+
+        <h4 style="margin-bottom:var(--sp-2);">Privacy &amp; Data</h4>
+        <p style="font-size:0.85rem; margin-bottom:var(--sp-4); color:var(--text-secondary);">Permanently delete your account and all associated data.</p>
+        <button class="btn btn-danger" id="deleteAccountBtn" style="width:auto;"><i class="fa-solid fa-trash"></i> Delete My Account</button>
+      </div>
+
+      <!-- Row 2 Right: Security / Change Password -->
+      <div class="card settings-card">
+        <h4 style="margin-bottom:var(--sp-3);">Security</h4>
+        <p style="font-size:0.85rem; margin-bottom:var(--sp-4); color:var(--text-secondary);">Update your account password securely.</p>
+        <form id="changePasswordForm">
+         <div class="form-group">
+  <label for="currentPassword">Current Password</label>
+  <div style="position:relative;">
+    <input type="password" id="currentPassword" placeholder="Enter current password" required style="padding-right:44px;">
+    <button type="button" class="toggle-password" data-target="currentPassword" aria-label="Show password" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--text-secondary);">
+      <i class="fa-solid fa-eye"></i>
+    </button>
+  </div>
+</div>
+<div class="form-group">
+  <label for="newPassword">New Password</label>
+  <div style="position:relative;">
+    <input type="password" id="newPassword" placeholder="At least 6 characters" required style="padding-right:44px;">
+    <button type="button" class="toggle-password" data-target="newPassword" aria-label="Show password" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--text-secondary);">
+      <i class="fa-solid fa-eye"></i>
+    </button>
+  </div>
+</div>
+          <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-key"></i> Update Password</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<!-- Delete Account Confirmation Modal -->
+<div class="modal-overlay" id="deleteAccountModal">
+  <div class="card modal-box">
+    <div class="modal-head">
+      <h3>Delete Account</h3>
+      <button class="modal-close" id="closeDeleteAccountModal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <p style="margin-bottom:20px; color:var(--text-secondary);">This will permanently delete your account and all your journal entries, goals, habits, mood history, and contacts. This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelDeleteAccount">Cancel</button>
+      <button class="btn btn-danger" id="confirmDeleteAccount"><i class="fa-solid fa-trash"></i> Yes, Delete Everything</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

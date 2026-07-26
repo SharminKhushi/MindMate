@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help &amp; Guide — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="help">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="challenges.html"><i class="fa-solid fa-flag-checkered"></i> Challenges</a>
+      <a href="achievements.html"><i class="fa-solid fa-trophy"></i> Achievements</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self-Help</a>
+      <a href="calm.html"><i class="fa-solid fa-spa"></i> Calm Corner</a>
+      <a href="help.html"><i class="fa-solid fa-circle-question"></i> Help &amp; Guide</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <h1>Help &amp; Guide</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <p style="color:var(--text-secondary); font-size:0.92rem; margin-bottom:var(--sp-5);">
+      New here, or not sure how something works? Answers to the most common questions below.
+    </p>
+
+    <div class="help-category">
+      <h3>Getting Started</h3>
+      <div class="faq-list">
+        <div class="card faq-item" data-id="f1">
+          <div class="faq-question">
+            <span>How do I create an account?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Go to the Sign Up page, enter your name, age (13-19), email, and a password of at least 6 characters. That's it — your private space is ready instantly.</p></div>
+        </div>
+        <div class="card faq-item" data-id="f2">
+          <div class="faq-question">
+            <span>Is my data private?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Yes. Your journal, mood history, goals, and contacts are stored securely and are only accessible to your own account — no one else, including other users, can see them.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="help-category">
+      <h3>Journal &amp; Mood</h3>
+      <div class="faq-list">
+        <div class="card faq-item" data-id="f3">
+          <div class="faq-question">
+            <span>How do I write a journal entry?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Go to Journal, click "Add Entry", write freely, pick how you felt (one or more moods), and save. You can edit or delete any entry later.</p></div>
+        </div>
+        <div class="card faq-item" data-id="f4">
+          <div class="faq-question">
+            <span>What does the Mood Check-in do with my answers?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Based on your mood, stress, energy, and sleep, MindMate gives you one gentle, relevant suggestion — like a breathing exercise or a self-help topic — right after you check in.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="help-category">
+      <h3>Goals, Habits &amp; Challenges</h3>
+      <div class="faq-list">
+        <div class="card faq-item" data-id="f5">
+          <div class="faq-question">
+            <span>How does goal progress work?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Each goal has a progress percentage you update yourself with the +10%/-10% buttons — there's no automatic tracking, so you're always in control.</p></div>
+        </div>
+        <div class="card faq-item" data-id="f6">
+          <div class="faq-question">
+            <span>What happens if I miss a day on a Challenge?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Nothing bad! You get 1 free "rest day" each week that keeps your streak alive even if you miss a day — because taking a break is part of being healthy, not a failure.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="help-category">
+      <h3>Privacy &amp; Account</h3>
+      <div class="faq-list">
+        <div class="card faq-item" data-id="f7">
+          <div class="faq-question">
+            <span>Can I delete my account and all my data?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer"><p>Yes. Go to Profile &amp; Settings → Privacy &amp; Data → Delete My Account. This permanently removes your account and everything linked to it — this can't be undone.</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<script src="../js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('open'));
+    });
+  });
+</script>
+</body>
+</html>

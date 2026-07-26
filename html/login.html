@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+  <div class="auth-visual">
+    <a href="../index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+    <div class="auth-visual-copy">
+      <h2>Good to see you again.</h2>
+      <p>Your check-ins, journal, and progress are exactly where you left them — private, and only yours.</p>
+    </div>
+  </div>
+
+  <div class="auth-form-panel">
+    <a href="../index.html" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back home</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" style="position:absolute; top:var(--sp-5); right:var(--sp-5);">
+      <span class="knob"><i class="fa-solid fa-moon"></i></span>
+    </button>
+
+    <div class="auth-card">
+      <div class="card auth-form-card">
+        <div class="auth-head">
+          <h2>Welcome back</h2>
+          <p>Log in to continue your journey.</p>
+        </div>
+
+        <div class="alert-box" id="loginAlert" role="alert"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required>
+            <div class="form-error"><i class="fa-solid fa-circle-exclamation"></i><span>Please enter a valid email address.</span></div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <div style="position:relative;">
+              <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required style="padding-right:44px;">
+              <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Show password" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--text-secondary);">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-error"><i class="fa-solid fa-circle-exclamation"></i><span>Please enter your password.</span></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+          </button>
+        </form>
+
+        <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up for free</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>

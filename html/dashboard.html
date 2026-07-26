@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — MindMate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="dashboard">
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>
+      MindMate
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="journal.html"><i class="fa-solid fa-book-open"></i> Journal</a>
+      <a href="mood.html"><i class="fa-solid fa-face-smile"></i> Mood Check-in</a>
+      <a href="goals.html"><i class="fa-solid fa-bullseye"></i> Goals &amp; Habits</a>
+      <a href="challenges.html"><i class="fa-solid fa-flag-checkered"></i> Challenges</a>
+      <a href="achievements.html"><i class="fa-solid fa-trophy"></i> Achievements</a>
+      <a href="selfhelp.html"><i class="fa-solid fa-hand-holding-heart"></i> Self-Help</a>
+      <a href="calm.html"><i class="fa-solid fa-spa"></i> Calm Corner</a>
+      <a href="help.html"><i class="fa-solid fa-circle-question"></i> Help &amp; Guide</a>
+      <div class="nav-divider"></div>
+      <a href="profile.html"><i class="fa-solid fa-user-gear"></i> Profile &amp; Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+      <div class="sidebar-user-info">
+        <strong id="sidebarUserName">—</strong>
+        <span id="sidebarUserEmail">—</span>
+      </div>
+      <button class="sidebar-logout" id="logoutBtn" aria-label="Log out" title="Log out">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+
+    <div class="app-topbar">
+      <h1>Dashboard</h1>
+      <div class="app-topbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="knob"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+
+      <!-- Block 1: Greeting + Today's Mood -->
+      <div class="card greeting-banner widget-3">
+        <div>
+          <h2 id="greetingText">Hi there</h2>
+          <p id="greetingDate">—</p>
+        </div>
+        <div class="greeting-mood-pill" id="todayMoodPill">
+          <span class="emoji">👋</span>
+          <span><strong>Loading…</strong><span>Today's mood</span></span>
+        </div>
+      </div>
+
+      <!-- Block 2: Quick Check-in -->
+      <div class="card widget">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-face-smile"></i></span> Quick Check-in</h3>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">How are you feeling right now?</p>
+        <div class="mood-chip-row" id="quickMoodRow"></div>
+        <a href="mood.html" class="widget-link">Full check-in &amp; analytics <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Block 3: Streak + Latest Badge (combined) -->
+      <div class="card widget">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-fire"></i></span> Your Progress</h3>
+          <a href="achievements.html" class="widget-link">Achievements <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div style="display:flex; align-items:center; gap:var(--sp-4); margin-bottom:var(--sp-4);">
+          <div class="stat-icon-circle"><i class="fa-solid fa-fire"></i></div>
+          <div>
+            <div class="stat-number"><span id="streakNumber">0</span> day streak</div>
+            <div class="stat-label">Keep checking in daily</div>
+          </div>
+        </div>
+        <div class="badge-row" id="badgeRow"></div>
+      </div>
+
+      <!-- Block 4: Daily Quote -->
+      <div class="card glass widget">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-quote-left"></i></span> Daily Quote</h3>
+        </div>
+        <p id="dailyQuoteText">"Loading today's quote…"</p>
+        <span class="quote-author" id="dailyQuoteAuthor">— MindMate</span>
+      </div>
+
+      <!-- Block 5: Today's Challenges (compact preview) -->
+      <div class="card widget widget-3">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-flag-checkered"></i></span> Today's Challenges</h3>
+          <a href="challenges.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <span id="challengeProgressText" style="font-size:0.8rem; color:var(--text-secondary);">0/4 completed</span>
+        <div class="progress-track" style="margin-bottom:var(--sp-4);">
+          <div class="progress-fill" id="challengeProgressFill" style="width:0%"></div>
+        </div>
+        <div class="challenge-list" id="challengeList"></div>
+      </div>
+
+      <!-- Block 6: Goals & Habits (combined) -->
+      <div class="card widget widget-2 progress-card">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-bullseye"></i></span> Goals &amp; Habits</h3>
+          <a href="goals.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div id="goalProgressBody"></div>
+        <div style="border-top:1px solid var(--border-soft); margin:var(--sp-4) 0;"></div>
+        <div id="habitProgressBody"></div>
+      </div>
+
+      <!-- Block 7: Recent Journal -->
+      <div class="card widget progress-card">
+        <div class="widget-head">
+          <h3><span class="widget-icon"><i class="fa-solid fa-book-open"></i></span> Recent Journal</h3>
+          <a href="journal.html" class="widget-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div id="journalPreviewList"></div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-tabbar">
+  <a href="dashboard.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="journal.html"><i class="fa-solid fa-book-open"></i>Journal</a>
+  <a href="mood.html"><i class="fa-solid fa-face-smile"></i>Mood</a>
+  <a href="goals.html"><i class="fa-solid fa-bullseye"></i>Goals</a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+</nav>
+
+<script src="../js/app.js"></script>
+</body>
+</html>
